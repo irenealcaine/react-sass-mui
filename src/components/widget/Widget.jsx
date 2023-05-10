@@ -1,6 +1,9 @@
 import "./widget.scss";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
+import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
+import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 
 const Widget = ({ type }) => {
   let data;
@@ -13,11 +16,11 @@ const Widget = ({ type }) => {
       data = {
         title: "USERS",
         isMoney: false,
-        link: "See all users...",
+        link: "See all users",
         icon: (
           <AccountCircleOutlinedIcon
             className="icon"
-            style={{ color: "red" }}
+            style={{ color: "#e11d48", backgroundColor: "#e11d4866" }}
           />
         ),
       };
@@ -26,24 +29,39 @@ const Widget = ({ type }) => {
       data = {
         title: "ORDERS",
         isMoney: false,
-        link: "View all orders...",
-        icon: <AccountCircleOutlinedIcon className="icon" />,
+        link: "View all orders",
+        icon: (
+          <ListAltOutlinedIcon
+            className="icon"
+            style={{ color: "#ca8a04", backgroundColor: "#ca8a0466" }}
+          />
+        ),
       };
       break;
     case "earning":
       data = {
         title: "EARNINGS",
         isMoney: true,
-        link: "View all orders...",
-        icon: <AccountCircleOutlinedIcon className="icon" />,
+        link: "View net earnings",
+        icon: (
+          <AttachMoneyOutlinedIcon
+            className="icon"
+            style={{ color: "#16a34a", backgroundColor: "#16a34a66" }}
+          />
+        ),
       };
       break;
     case "balance":
       data = {
         title: "BALANCES",
         isMoney: true,
-        link: "View all orders...",
-        icon: <AccountCircleOutlinedIcon className="icon" />,
+        link: "See details",
+        icon: (
+          <SavingsOutlinedIcon
+            className="icon"
+            style={{ color: "#ea580c", backgroundColor: "#ea580c66" }}
+          />
+        ),
       };
       break;
     default:
