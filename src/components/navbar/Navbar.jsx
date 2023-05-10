@@ -18,23 +18,32 @@ const Navbar = () => {
         </div>
         <div className="items">
           <div className="item">
-            <PublicIcon />
+            <PublicIcon className="icon" />
             English
           </div>
           <div className="item">
-            <DarkModeOutlinedIcon />
+            <DarkModeOutlinedIcon className="icon" />
           </div>
           <div className="item">
-            <BorderInnerOutlinedIcon />
+            <BorderInnerOutlinedIcon className="icon" />
           </div>
           <div className="item">
-            <CircleNotificationsOutlinedIcon />
+            <CircleNotificationsOutlinedIcon className="icon" />
+            <div className="counter">1</div>
           </div>
           <div className="item">
-            <ChatOutlinedIcon />
+            <ChatOutlinedIcon className="icon" />
+            <div className="counter">1</div>
           </div>
           <div className="item">
-            <ChecklistRtlOutlinedIcon />
+            <ChecklistRtlOutlinedIcon className="icon" />
+          </div>
+          <div className="item">
+            <img
+              src="https://thumbs.dreamstime.com/b/perfil-del-avatar-de-la-mujer-joven-y-elegante-81932605.jpg"
+              alt="avatar"
+              className="avatar"
+            />
           </div>
         </div>
       </div>
