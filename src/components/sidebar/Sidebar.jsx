@@ -7,7 +7,7 @@ import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import QueryStatsOutlinedIcon from "@mui/icons-material/QueryStatsOutlined";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
-import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -22,52 +22,57 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
+          <p className="title">MAIN</p>
           <li>
-            <DashboardIcon />
+            <DashboardIcon className="icon" />
             <span>Dashboard</span>
           </li>
+          <p className="title">LISTS</p>
           <li>
-            <PersonIcon />
+            <PersonIcon className="icon" />
             <span>Users</span>
           </li>
           <li>
-            <Inventory2OutlinedIcon />
+            <Inventory2OutlinedIcon className="icon" />
             <span>Products</span>
           </li>
           <li>
-            <InventoryOutlinedIcon />
+            <InventoryOutlinedIcon className="icon" />
             <span>Orders</span>
           </li>
           <li>
-            <LocalShippingOutlinedIcon />
+            <LocalShippingOutlinedIcon className="icon" />
             <span>Delivery</span>
           </li>
+          <p className="title">USEFUL</p>
           <li>
-            <QueryStatsOutlinedIcon />
+            <QueryStatsOutlinedIcon className="icon" />
             <span>Stats</span>
           </li>
           <li>
-            <NotificationsActiveOutlinedIcon />
+            <NotificationsActiveOutlinedIcon className="icon" />
             <span>Notifications</span>
           </li>
+          <p className="title">SERVICE</p>
           <li>
-            <FavoriteOutlinedIcon />
+            <FavoriteBorderIcon className="icon" />
             <span>System health</span>
           </li>
           <li>
-            <LoginOutlinedIcon />
+            <LoginOutlinedIcon className="icon" />
             <span>Logs</span>
           </li>
           <li>
-            <SettingsOutlinedIcon />
+            <SettingsOutlinedIcon className="icon" />
             <span>Settings</span>
           </li>
+          <p className="title">USER</p>
           <li>
-            <AccountBoxIcon />
+            <AccountBoxIcon className="icon" />
             <span>Pofile</span>
           </li>
           <li>
-            <LogoutOutlinedIcon />
+            <LogoutOutlinedIcon className="icon" />
             <span>Logout</span>
           </li>
         </ul>
