@@ -1,0 +1,15 @@
+.chart {
+  flex: 4;
+  box-shadow: 5px 5px 10px #ddd;
+  padding: 10px;
+  color: gray;
+  border-radius: 10px;
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .chartGid {
+    stroke: lightgrey;
+  }
+}
