@@ -1,5 +1,7 @@
 import "./featured.scss";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 const Featured = () => {
   return (
@@ -9,7 +11,12 @@ const Featured = () => {
         <DragIndicatorIcon fontSize="small" />
       </span>
       <span className="bottom">
-        <div className="featuredChart"></div>
+        <div className="featuredChart">
+          <CircularProgressbar value={70} text={"70%"} strokeWidth={3} />
+        </div>
+        <p className="title">Total sales made today</p>
+        <p className="amount">420 €</p>
+        <p className="desc">Only last month</p>
       </span>
     </div>
   );
