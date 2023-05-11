@@ -2,7 +2,8 @@ import "./featured.scss";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Featured = () => {
   return (
@@ -23,24 +24,24 @@ const Featured = () => {
         <div className="summary">
           <div className="item">
             <div className="itemTitle">Target</div>
-            <div className="itemResult">
-              <ArrowDropDownIcon fontSize={"small"} />
+            <div className="itemResult negative">
+              <KeyboardArrowDownIcon fontSize={"small"} />
               <div className="resultAmount">12.4k €</div>
             </div>
           </div>
 
           <div className="item">
-            <div className="itemTitle">Target</div>
-            <div className="itemResult">
-              <ArrowDropDownIcon fontSize={"small"} />
+            <div className="itemTitle">Last week</div>
+            <div className="itemResult positive">
+              <KeyboardArrowUpIcon fontSize={"small"} />
               <div className="resultAmount">12.4k €</div>
             </div>
           </div>
 
           <div className="item">
-            <div className="itemTitle">Target</div>
-            <div className="itemResult">
-              <ArrowDropDownIcon fontSize={"small"} />
+            <div className="itemTitle">Last month</div>
+            <div className="itemResult positive">
+              <KeyboardArrowUpIcon fontSize={"small"} />
               <div className="resultAmount">12.4k €</div>
             </div>
           </div>
