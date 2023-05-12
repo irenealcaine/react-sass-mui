@@ -30,5 +30,36 @@
         color: #999;
       }
     }
+
+    hr{
+      border-color:#333
+    }
+
+    ul{
+      li{
+        &:hover{
+          background-color: #333;
+
+        }
+        .icon{
+          color:#999
+        }
+      }
+    }
+  }
+  .datatable{
+    .datagrid{
+      color:gray;
+      border:none;
+
+      .viewButton, .deleteButton, .cellWithStatus{
+        color:grey;
+        border:none
+      }
+    }
+  }
+
+  input{
+    background-color: transparent;
   }
 }

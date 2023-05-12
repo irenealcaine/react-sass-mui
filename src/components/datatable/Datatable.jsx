@@ -40,6 +40,7 @@ const Datatable = () => {
         }}
         pageSizeOptions={[9, 18]}
         checkboxSelection
+        className="datagrid"
       />
     </div>
   );
