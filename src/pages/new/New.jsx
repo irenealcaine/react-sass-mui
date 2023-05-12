@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 
-const New = () => {
+const New = ({ inputs, title }) => {
+  const [file, setFile] = useState("");
+
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add new user</h1>
+          <h1>{title}</h1>
         </div>
         <div className="bottom">
           <div className="left">
             <img
-              src="https://thumbs.dreamstime.com/b/perfil-del-avatar-de-la-mujer-joven-y-elegante-81932605.jpg"
+              src={
+                file
+                  ? URL.createObjectURL(file)
+                  : "https://thumbs.dreamstime.com/b/perfil-del-avatar-de-la-mujer-joven-y-elegante-81932605.jpg"
+              }
               alt="avatar"
               className=""
             />
@@ -24,39 +30,23 @@ const New = () => {
           <div className="right">
             <form>
               <div className="formInput">
-                <label>
-                  <FileUploadIcon />
+                <label htmlFor="file">
+                  Image: <FileUploadIcon className="icon" />
                 </label>
-                <input type="file" />
+                <input
+                  type="file"
+                  id="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  style={{ display: "none" }}
+                />
               </div>
-              <div className="formInput">
-                <label>Username</label>
-                <input type="text" placeholder="jhon_doe" />
-              </div>
-              <div className="formInput">
-                <label>Name and surname</label>
-                <input type="text" placeholder="Jhon Doe" />
-              </div>
-              <div className="formInput">
-                <label>Email</label>
-                <input type="email" placeholder="jhon_doe@gmail.com" />
-              </div>
-              <div className="formInput">
-                <label>Phone</label>
-                <input type="tel" placeholder="+34 356 54 89 45" />
-              </div>
-              <div className="formInput">
-                <label>Password</label>
-                <input type="password" />
-              </div>
-              <div className="formInput">
-                <label>Address</label>
-                <input type="text" placeholder="Calle Falsa 123, Valencia" />
-              </div>
-              <div className="formInput">
-                <label>Country</label>
-                <input type="text" placeholder="Portugal" />
-              </div>
+              {inputs.map((input) => (
+                <div className="formInput" key={input.id}>
+                  <label>{input.label}</label>
+                  <input type={input.type} placeholder={input.placeholder} />
+                </div>
+              ))}
+
               <button>Send</button>
             </form>
           </div>
