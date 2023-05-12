@@ -1,4 +1,4 @@
-.datatable{
+.datatable {
   padding: 20px;
 
   .cellWithImg {
@@ -11,7 +11,6 @@
       border-radius: 50%;
       object-fit: cover;
       margin-right: 20px;
-
     }
   }
 
@@ -30,6 +29,27 @@
     &.passive {
       background-color: rgba(255, 0, 0, 0.05);
       color: crimson;
+    }
+  }
+
+  .cellAction {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .viewButton {
+      padding: 2px 5px;
+      border-radius: 5px;
+      border: 1px dotted darkblue;
+      color: darkblue;
+      cursor: pointer;
+    }
+    .deleteButton {
+      padding: 2px 5px;
+      border-radius: 5px;
+      border: 1px dotted red;
+      color: red;
+      cursor: pointer;
     }
   }
 }
