@@ -3,9 +3,33 @@ import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
+import {
+  doc,
+  setDoc,
+  collection,
+  addDoc,
+  serverTimestamp,
+} from "firebase/firestore";
+import { db } from "../../firebase";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
+  const [data, setData] = useState({});
+
+  const handleAdd = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await addDoc(collection(db, "cities"), {
+        name: "Los Angeles",
+        state: "CA",
+        country: "USA",
+        timeStamp: serverTimestamp(),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="new">
@@ -28,7 +52,7 @@ const New = ({ inputs, title }) => {
             />
           </div>
           <div className="right">
-            <form>
+            <form onSubmit={handleAdd}>
               <div className="formInput">
                 <label htmlFor="file">
                   Image: <FileUploadIcon className="icon" />
@@ -47,7 +71,7 @@ const New = ({ inputs, title }) => {
                 </div>
               ))}
 
-              <button>Send</button>
+              <button type="submit">Send</button>
             </form>
           </div>
         </div>
