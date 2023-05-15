@@ -10,20 +10,34 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import { db } from "../../firebase";
+import { auth, db } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
 
+  const handleInput = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+
+    setData({ ...data, [id]: value });
+  };
+
+  console.log(data);
+
   const handleAdd = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await addDoc(collection(db, "cities"), {
-        name: "Los Angeles",
-        state: "CA",
-        country: "USA",
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      await setDoc(doc(db, "users", res.user.uid), {
+        ...data,
         timeStamp: serverTimestamp(),
       });
     } catch (err) {
@@ -67,7 +81,12 @@ const New = ({ inputs, title }) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type} placeholder={input.placeholder} />
+                  <input
+                    id={input.id}
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    onChange={handleInput}
+                  />
                 </div>
               ))}
 
