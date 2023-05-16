@@ -22,6 +22,7 @@ import {
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
+  const [percentage, setPercentage] = useState(null);
 
   useEffect(() => {
     const uploadFile = () => {
@@ -42,6 +43,7 @@ const New = ({ inputs, title }) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
+          setPercentage(progress);
           switch (snapshot.state) {
             case "paused":
               console.log("Upload is paused");
@@ -141,7 +143,12 @@ const New = ({ inputs, title }) => {
                 </div>
               ))}
 
-              <button type="submit">Send</button>
+              <button
+                disabled={percentage !== null && percentage < 100}
+                type="submit"
+              >
+                Send
+              </button>
             </form>
           </div>
         </div>
