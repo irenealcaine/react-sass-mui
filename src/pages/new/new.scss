@@ -70,6 +70,10 @@
           cursor: pointer;
           margin-top: 10px;
           border-radius: 10px;
+
+          &:disabled {
+            background-color: gray;
+          }
         }
       }
     }
