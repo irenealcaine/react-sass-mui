@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -10,12 +10,20 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import { auth, db } from "../../firebase";
+import { auth, db, storage } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
+
+  useEffect(() => {}, [file]);
 
   const handleInput = (e) => {
     const id = e.target.id;
@@ -23,8 +31,6 @@ const New = ({ inputs, title }) => {
 
     setData({ ...data, [id]: value });
   };
-
-  console.log(data);
 
   const handleAdd = async (e) => {
     e.preventDefault();
