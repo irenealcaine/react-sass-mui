@@ -16,22 +16,6 @@ const Datatable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   let list = [];
-    //   try {
-    //     const querySnapshot = await getDocs(collection(db, "users"));
-    //     querySnapshot.forEach((doc) => {
-    //       list.push({ id: doc.id, ...doc.data() });
-    //       // doc.data() is never undefined for query doc snapshots
-    //       console.log(list);
-    //       setData(list);
-    //     });
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
-    // fetchData();
-
     const unsub = onSnapshot(collection(db, "users"), (snapShot) => {
       let list = [];
       snapShot.docs.forEach(
@@ -44,13 +28,11 @@ const Datatable = () => {
         }
       );
     });
-    
-    return()=>{
-      unsub()
-    }
-  }, []);
 
-  console.log(data);
+    return () => {
+      unsub();
+    };
+  }, []);
 
   const handleDelete = async (id) => {
     try {
@@ -87,7 +69,7 @@ const Datatable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add new user
+        Add new data
         <Link to="/users/new" className="link">
           Add new
         </Link>
