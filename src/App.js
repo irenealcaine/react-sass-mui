@@ -25,8 +25,16 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route path="login" element={<Login />} />
-            <Route path="signin" element={<Signin inputs={userInputs} />} />
+            <Route
+              path="login"
+              element={<Login title={"Log in your account"} />}
+            />
+            <Route
+              path="signin"
+              element={
+                <Signin inputs={userInputs} title={"Sign in your account"} />
+              }
+            />
             <Route
               index
               element={

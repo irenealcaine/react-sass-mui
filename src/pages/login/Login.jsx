@@ -5,7 +5,7 @@ import { auth } from "../../firebase";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const Login = () => {
+const Login = ({ title }) => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,6 +35,7 @@ const Login = () => {
   return (
     <div className="login">
       <form onSubmit={handleLogin}>
+        <h1>{title}</h1>
         <input
           type="email"
           placeholder="email"
