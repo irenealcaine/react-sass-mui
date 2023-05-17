@@ -20,7 +20,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 
-const Login = ({ inputs }) => {
+const Login = ({ inputs, title }) => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -117,8 +117,9 @@ const Login = ({ inputs }) => {
   };
 
   return (
-    <div className="login">
+    <div className="signin">
       <form onSubmit={handleAdd}>
+        <h1>{title}</h1>
         {/* <input
           type="email"
           placeholder="email"
