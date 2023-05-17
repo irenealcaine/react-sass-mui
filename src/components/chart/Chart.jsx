@@ -9,12 +9,12 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "January", Total: 1200 },
-  { name: "February", Total: 2100 },
-  { name: "March", Total: 800 },
-  { name: "April", Total: 1600 },
-  { name: "May", Total: 900 },
-  { name: "June", Total: 1700 },
+  { name: "January", Total: Math.random() * (2500 - 200) + 200 },
+  { name: "February", Total: Math.random() * (2500 - 200) + 200 },
+  { name: "March", Total: Math.random() * (2500 - 200) + 200 },
+  { name: "April", Total: Math.random() * (2500 - 200) + 200 },
+  { name: "May", Total: Math.random() * (2500 - 200) + 200 },
+  { name: "June", Total: Math.random() * (2500 - 200) + 200 },
 ];
 
 const Chart = ({ aspect, title }) => {
@@ -36,10 +36,10 @@ const Chart = ({ aspect, title }) => {
           </defs>
           <XAxis dataKey="name" />
 
-          <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
+          <CartesianGrid strokeDasharray="1 100" className="chartGrid" />
           <Tooltip />
           <Area
-            type="monotone"
+            type="natural"
             dataKey="Total"
             stroke="#6439ff"
             fillOpacity={1}

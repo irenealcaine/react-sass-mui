@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login.jsx";
+import Signin from "./pages/signin/Signin.jsx";
 import List from "./pages/list/List.jsx";
 import Single from "./pages/single/Single.jsx";
 import New from "./pages/new/New.jsx";
@@ -24,7 +25,16 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route path="login" element={<Login />} />
+            <Route
+              path="login"
+              element={<Login title={"Log in your account"} />}
+            />
+            <Route
+              path="signin"
+              element={
+                <Signin inputs={userInputs} title={"Sign in your account"} />
+              }
+            />
             <Route
               index
               element={
