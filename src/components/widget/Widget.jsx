@@ -1,5 +1,6 @@
 import "./widget.scss";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
@@ -22,6 +23,7 @@ const Widget = ({ type }) => {
         title: "USERS",
         isMoney: false,
         link: "See all users",
+        query: "users",
         icon: (
           <AccountCircleOutlinedIcon
             className="icon"
@@ -56,10 +58,10 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "balance":
+    case "product":
       data = {
-        title: "BALANCES",
-        isMoney: true,
+        title: "PRODUCTS",
+        query: "products",
         link: "See details",
         icon: (
           <SavingsOutlinedIcon
@@ -80,13 +82,13 @@ const Widget = ({ type }) => {
       const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
 
       const lastMonthQuery = query(
-        collection(db, "users"),
+        collection(db, data.query),
         where("timeStamp", "<=", today),
         where("timeStamp", ">", lastMonth)
       );
 
       const prevMonthQuery = query(
-        collection(db, "users"),
+        collection(db, data.query),
         where("timeStamp", "<=", lastMonth),
         where("timeStamp", ">", prevMonth)
       );
@@ -114,8 +116,13 @@ const Widget = ({ type }) => {
         <span className="link">{data.link}</span>
       </div>
       <div className="right">
-        <div className="percentage positive">
-          <KeyboardArrowUpOutlinedIcon />
+        <div className={`percentage ${diff < 0 ? "negative" : "positive"}`}>
+          {/* <KeyboardArrowUpOutlinedIcon className={`${diff < 0 ? "negative" : "positive"}`}/> */}
+          {diff < 0 ? (
+            <KeyboardArrowDownIcon />
+          ) : (
+            <KeyboardArrowUpOutlinedIcon />
+          )}
           {diff}%
         </div>
         {data.icon}
