@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/">
             <Route path="login" element={<Login />} />
-            <Route path="signin" element={<Signin />} />
+            <Route path="signin" element={<Signin inputs={userInputs} />} />
             <Route
               index
               element={
