@@ -21,7 +21,7 @@ import {
 } from "firebase/storage";
 
 const Login = ({ inputs, title }) => {
-  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState({});
@@ -104,8 +104,8 @@ const Login = ({ inputs, title }) => {
         timeStamp: serverTimestamp(),
       });
       navigate("/login");
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      setErrorMsg(error.message);
     }
   };
 
@@ -152,7 +152,7 @@ const Login = ({ inputs, title }) => {
           style={{ display: "none" }}
         />
         <button type="submit">Sign in</button>
-        {error && <span>Wrong mail or password!</span>}
+        {errorMsg && <span>{errorMsg}</span>}
         <p>
           Already have an account? <Link to="/login">Log in</Link>
         </p>

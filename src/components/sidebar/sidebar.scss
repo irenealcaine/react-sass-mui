@@ -84,3 +84,28 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    min-height: auto;
+    .center {
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        .title {
+          display: none;
+        }
+        li {
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+    .bottom {
+      justify-content: center;
+    }
+  }
+}
