@@ -4,12 +4,18 @@
   padding: 10px;
   color: gray;
   border-radius: 10px;
+  height: fit-content;
 
   .title {
     margin-bottom: 20px;
   }
 
-  .chartGid {
-    stroke: lightgrey;
+  .chartGrid {
+    stroke: transparent;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .chart {
+    width: 90%;
   }
 }
