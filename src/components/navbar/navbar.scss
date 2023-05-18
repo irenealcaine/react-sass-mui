@@ -68,3 +68,23 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    height: auto;
+    .wrapper {
+      padding: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      .items {
+        justify-content: center;
+        padding-top: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+        .item {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
