@@ -24,11 +24,11 @@ const Home = () => {
           <Featured />
           <Chart aspect={2 / 1} title={"Last 6 months (revenue)"} />
         </div>
-        <div className="listContainer">
-          <div className="listTitle">Latest transactions</div>
-          {/* <List /> */}
-          <Datatable type="products" />
-        </div>
+        {/* <div className="listContainer"> */}
+        {/* <div className="listTitle">Latest transactions</div> */}
+        {/* <List /> */}
+        <Datatable type="products" />
+        {/* </div> */}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = ({ title }) => {
-  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,7 +27,8 @@ const Login = ({ title }) => {
         // ...
       })
       .catch((error) => {
-        setError(true);
+        setErrorMsg(error.message);
+
         // ..
       });
   };
@@ -47,7 +48,7 @@ const Login = ({ title }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Log in</button>
-        {error && <span>Wrong mail or password!</span>}
+        {errorMsg && <span>{errorMsg}</span>}
         <p>
           Don't have an account? <Link to="/signin">Sign in</Link>
         </p>

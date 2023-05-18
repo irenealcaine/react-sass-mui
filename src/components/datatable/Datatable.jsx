@@ -73,7 +73,7 @@ const Datatable = ({ type }) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add new {type}
+        New {type}
         <Link to={`/${type}/new`} className="link">
           Add new
         </Link>
