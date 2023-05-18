@@ -10,8 +10,7 @@ import ChecklistRtlOutlinedIcon from "@mui/icons-material/ChecklistRtlOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 
 const Navbar = () => {
-
-  const { dispatch } = useContext(DarkModeContext)
+  const { dispatch } = useContext(DarkModeContext);
 
   return (
     <div className="navbar">
@@ -26,7 +25,11 @@ const Navbar = () => {
             English
           </div>
           <div className="item">
-            <DarkModeOutlinedIcon className="icon" onClick={() => dispatch({ type: "TOGGLE" })} />
+            <DarkModeOutlinedIcon
+              className="icon"
+              style={{ cursor: "pointer" }}
+              onClick={() => dispatch({ type: "TOGGLE" })}
+            />
           </div>
           <div className="item">
             <BorderInnerOutlinedIcon className="icon" />

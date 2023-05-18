@@ -29,3 +29,13 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .home {
+    flex-direction: column;
+    .widgets,
+    .charts {
+      flex-wrap: wrap;
+    }
+  }
+}

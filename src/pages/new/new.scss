@@ -79,3 +79,15 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .new {
+    flex-direction: column;
+    min-height: 100vh;
+    .newContainer {
+      .bottom {
+        flex-direction: column;
+      }
+    }
+  }
+}
