@@ -48,7 +48,7 @@ function App() {
                 index
                 element={
                   <RequireAuth>
-                    <List />
+                    <List type="users" />
                   </RequireAuth>
                 }
               />
@@ -74,7 +74,7 @@ function App() {
                 index
                 element={
                   <RequireAuth>
-                    <List />
+                    <List type="products" />
                   </RequireAuth>
                 }
               />
