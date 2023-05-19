@@ -6,13 +6,22 @@ import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  onSnapshot,
+} from "firebase/firestore";
 import { db } from "../../firebase";
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
   const [diff, setDiff] = useState(null);
+  const [money, setMoney] = useState(15);
   let data;
+  const [datas, setDatas] = useState([]);
 
   // const amount = 100;
   // const diff = 80;
@@ -24,6 +33,7 @@ const Widget = ({ type }) => {
         isMoney: false,
         link: "See all users",
         query: "users",
+        to: "/users",
         icon: (
           <AccountCircleOutlinedIcon
             className="icon"
@@ -35,8 +45,10 @@ const Widget = ({ type }) => {
     case "order":
       data = {
         title: "ORDERS",
-        isMoney: false,
+        isMoney: true,
         link: "View all orders",
+        query: "orders",
+        to: "/orders",
         icon: (
           <ListAltOutlinedIcon
             className="icon"
@@ -50,6 +62,8 @@ const Widget = ({ type }) => {
         title: "EARNINGS",
         isMoney: true,
         link: "View net earnings",
+        query: "earnings",
+        to: "/earnings",
         icon: (
           <AttachMoneyOutlinedIcon
             className="icon"
@@ -63,6 +77,7 @@ const Widget = ({ type }) => {
         title: "PRODUCTS",
         query: "products",
         link: "See details",
+        to: "/products",
         icon: (
           <SavingsOutlinedIcon
             className="icon"
@@ -102,6 +117,10 @@ const Widget = ({ type }) => {
           prevMonthData.docs.length) *
           100
       );
+
+      const moneyAmount = lastMonthData.docs.length - prevMonthData.docs.length;
+      setMoney(moneyAmount);
+      console.log(collection(db, data.query));
     };
     fetchData();
   }, []);
@@ -111,13 +130,14 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {amount} {data.isMoney && "€"}
+          {data.isMoney ? money : amount} {data.isMoney && "€"}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data.to}>
+          <span className="link">{data.link}</span>
+        </Link>
       </div>
       <div className="right">
         <div className={`percentage ${diff < 0 ? "negative" : "positive"}`}>
-          {/* <KeyboardArrowUpOutlinedIcon className={`${diff < 0 ? "negative" : "positive"}`}/> */}
           {diff < 0 ? (
             <KeyboardArrowDownIcon />
           ) : (
