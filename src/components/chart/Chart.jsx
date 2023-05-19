@@ -9,12 +9,12 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "January", Total: Math.random() * (2500 - 200) + 200 },
-  { name: "February", Total: Math.random() * (2500 - 200) + 200 },
-  { name: "March", Total: Math.random() * (2500 - 200) + 200 },
-  { name: "April", Total: Math.random() * (2500 - 200) + 200 },
-  { name: "May", Total: Math.random() * (2500 - 200) + 200 },
-  { name: "June", Total: Math.random() * (2500 - 200) + 200 },
+  { name: "January", Total: Math.floor(Math.random() * (2500 - 200) + 200) },
+  { name: "February", Total: Math.floor(Math.random() * (2500 - 200) + 200) },
+  { name: "March", Total: Math.floor(Math.random() * (2500 - 200) + 200) },
+  { name: "April", Total: Math.floor(Math.random() * (2500 - 200) + 200) },
+  { name: "May", Total: Math.floor(Math.random() * (2500 - 200) + 200) },
+  { name: "June", Total: Math.floor(Math.random() * (2500 - 200) + 200) },
 ];
 
 const Chart = ({ aspect, title }) => {
@@ -37,7 +37,7 @@ const Chart = ({ aspect, title }) => {
           <CartesianGrid strokeDasharray="1 100" className="chartGrid" />
           <Tooltip />
           <Area
-            type="natural"
+            type="linear"
             dataKey="Total"
             stroke="#6439ff"
             fillOpacity={1}
