@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
   const [diff, setDiff] = useState(null);
+  const [money, setMoney] = useState(1);
   let data;
 
   // const amount = 100;
@@ -109,6 +110,9 @@ const Widget = ({ type }) => {
           prevMonthData.docs.length) *
           100
       );
+
+      const moneyAmount = lastMonthData.docs.length - prevMonthData.docs.length;
+      setMoney(moneyAmount);
     };
     fetchData();
   }, []);
@@ -118,7 +122,7 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {amount} {data.isMoney && "€"}
+          {data.isMoney ? money : amount} {data.isMoney && "€"}
         </span>
         <Link to={data.to}>
           <span className="link">{data.link}</span>
