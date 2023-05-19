@@ -37,6 +37,7 @@ const Widget = ({ type }) => {
         title: "ORDERS",
         isMoney: false,
         link: "View all orders",
+        query: "orders",
         icon: (
           <ListAltOutlinedIcon
             className="icon"
@@ -50,6 +51,7 @@ const Widget = ({ type }) => {
         title: "EARNINGS",
         isMoney: true,
         link: "View net earnings",
+        query: "earnings",
         icon: (
           <AttachMoneyOutlinedIcon
             className="icon"
