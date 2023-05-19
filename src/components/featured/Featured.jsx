@@ -1,12 +1,12 @@
 import "./featured.scss";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Featured = () => {
-  const percentage = Math.floor(Math.random() * (90 - 60) + 60);
+  const percentage = Math.floor(Math.random() * (90 - 50) + 50);
   const amount1 = Math.floor(Math.random() * (1900 - -300) + -300);
   const amount2 = Math.floor(Math.random() * (2500 - -600) + -600);
   const amount3 = Math.floor(Math.random() * (2900 - -1600) + -1600);
@@ -24,6 +24,11 @@ const Featured = () => {
             text={`${percentage}%`}
             strokeWidth={3}
             strokeColor={"#ff0"}
+            styles={buildStyles({
+              pathTransitionDuration: 0.5,
+              pathColor: `rgba(100, 57, 255, ${percentage / 100})`,
+              textColor: "#6439ff",
+            })}
           />
         </div>
         <p className="title">Total sales made today</p>
