@@ -6,15 +6,22 @@ import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  onSnapshot,
+} from "firebase/firestore";
 import { db } from "../../firebase";
 import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
   const [diff, setDiff] = useState(null);
-  const [money, setMoney] = useState(1);
+  const [money, setMoney] = useState(15);
   let data;
+  const [datas, setDatas] = useState([]);
 
   // const amount = 100;
   // const diff = 80;
@@ -38,7 +45,7 @@ const Widget = ({ type }) => {
     case "order":
       data = {
         title: "ORDERS",
-        isMoney: false,
+        isMoney: true,
         link: "View all orders",
         query: "orders",
         to: "/orders",
@@ -113,6 +120,7 @@ const Widget = ({ type }) => {
 
       const moneyAmount = lastMonthData.docs.length - prevMonthData.docs.length;
       setMoney(moneyAmount);
+      console.log(collection(db, data.query));
     };
     fetchData();
   }, []);
@@ -130,7 +138,6 @@ const Widget = ({ type }) => {
       </div>
       <div className="right">
         <div className={`percentage ${diff < 0 ? "negative" : "positive"}`}>
-          {/* <KeyboardArrowUpOutlinedIcon className={`${diff < 0 ? "negative" : "positive"}`}/> */}
           {diff < 0 ? (
             <KeyboardArrowDownIcon />
           ) : (
