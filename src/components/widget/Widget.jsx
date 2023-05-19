@@ -8,6 +8,7 @@ import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
@@ -24,6 +25,7 @@ const Widget = ({ type }) => {
         isMoney: false,
         link: "See all users",
         query: "users",
+        to: "/users",
         icon: (
           <AccountCircleOutlinedIcon
             className="icon"
@@ -38,6 +40,7 @@ const Widget = ({ type }) => {
         isMoney: false,
         link: "View all orders",
         query: "orders",
+        to: "/orders",
         icon: (
           <ListAltOutlinedIcon
             className="icon"
@@ -52,6 +55,7 @@ const Widget = ({ type }) => {
         isMoney: true,
         link: "View net earnings",
         query: "earnings",
+        to: "/earnings",
         icon: (
           <AttachMoneyOutlinedIcon
             className="icon"
@@ -65,6 +69,7 @@ const Widget = ({ type }) => {
         title: "PRODUCTS",
         query: "products",
         link: "See details",
+        to: "/products",
         icon: (
           <SavingsOutlinedIcon
             className="icon"
@@ -115,7 +120,9 @@ const Widget = ({ type }) => {
         <span className="counter">
           {amount} {data.isMoney && "€"}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data.to}>
+          <span className="link">{data.link}</span>
+        </Link>
       </div>
       <div className="right">
         <div className={`percentage ${diff < 0 ? "negative" : "positive"}`}>
