@@ -22,7 +22,7 @@ const Featured = () => {
           <CircularProgressbar
             value={percentage}
             text={`${percentage}%`}
-            strokeWidth={3}
+            strokeWidth={4}
             styles={{
               path: {
                 stroke: "#6439ffee",
