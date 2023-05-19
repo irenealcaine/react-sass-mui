@@ -30,6 +30,7 @@ const Sidebar = () => {
       .then(() => {
         const user = null;
         dispatch({ type: "LOGOUT", payload: user });
+        localStorage.removeItem("user");
         navigate("/login");
       })
       .catch((error) => {
