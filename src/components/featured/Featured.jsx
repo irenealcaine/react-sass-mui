@@ -23,12 +23,20 @@ const Featured = () => {
             value={percentage}
             text={`${percentage}%`}
             strokeWidth={3}
-            strokeColor={"#ff0"}
-            styles={buildStyles({
-              pathTransitionDuration: 0.5,
-              pathColor: "#6439ffdd",
-              textColor: "#6439ff",
-            })}
+            styles={{
+              path: {
+                stroke: "#6439ffee",
+                transition: "all 0.5s ease",
+                transformOrigin: "center center",
+              },
+              trail: {
+                stroke: "#6439ff22",
+                transformOrigin: "center center",
+              },
+              text: {
+                fill: "#6439ff",
+              },
+            }}
           />
         </div>
         <p className="title">Total sales made today</p>
