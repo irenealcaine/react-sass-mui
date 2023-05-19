@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
@@ -17,9 +18,24 @@ import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 // import { DashboardIcon } from "@mui/icons-material";
 
-const Sidebar = () => {
+import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
 
-  const { dispatch } = useContext(DarkModeContext)
+const Sidebar = () => {
+  const { dispatch } = useContext(DarkModeContext);
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        const user = null;
+        dispatch({ type: "LOGOUT", payload: user });
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="sidebar">
@@ -84,15 +100,21 @@ const Sidebar = () => {
             <AccountBoxIcon className="icon" />
             <span>Pofile</span>
           </li>
-          <li>
+          <li onClick={() => logOut()}>
             <LogoutOutlinedIcon className="icon" />
             <span>Logout</span>
           </li>
         </ul>
       </div>
       <div className="bottom">
-        <div className="colorOption" onClick={() => dispatch({ type: "LIGHT" })}></div>
-        <div className="colorOption" onClick={() => dispatch({ type: "DARK" })}></div>
+        <div
+          className="colorOption"
+          onClick={() => dispatch({ type: "LIGHT" })}
+        ></div>
+        <div
+          className="colorOption"
+          onClick={() => dispatch({ type: "DARK" })}
+        ></div>
       </div>
     </div>
   );
