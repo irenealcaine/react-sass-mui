@@ -57,7 +57,7 @@ export const productColumns = [
   },
   {
     field: "status",
-    headerName: "EStatus",
+    headerName: "Status",
     width: 230,
   },
   // {
