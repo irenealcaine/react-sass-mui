@@ -26,7 +26,7 @@ const Featured = () => {
             strokeColor={"#ff0"}
             styles={buildStyles({
               pathTransitionDuration: 0.5,
-              pathColor: `rgba(100, 57, 255, ${percentage / 100})`,
+              pathColor: "#6439ffdd",
               textColor: "#6439ff",
             })}
           />

@@ -8,6 +8,7 @@ import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificat
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import ChecklistRtlOutlinedIcon from "@mui/icons-material/ChecklistRtlOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -15,14 +16,14 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="wrapper">
-        <div className="search">
+        {/* <div className="search">
           <input type="text" placeholder="Search..." />
           <SearchIcon />
-        </div>
+        </div> */}
         <div className="items">
           <div className="item">
-            <PublicIcon className="icon" />
-            English
+            {/* <PublicIcon className="icon" />
+            English */}
           </div>
           <div className="item">
             <DarkModeOutlinedIcon
@@ -31,7 +32,7 @@ const Navbar = () => {
               onClick={() => dispatch({ type: "TOGGLE" })}
             />
           </div>
-          <div className="item">
+          {/* <div className="item">
             <BorderInnerOutlinedIcon className="icon" />
           </div>
           <div className="item">
@@ -44,14 +45,14 @@ const Navbar = () => {
           </div>
           <div className="item">
             <ChecklistRtlOutlinedIcon className="icon" />
-          </div>
-          <div className="item">
+          </div> */}
+          <Link to="/users/test" className="item">
             <img
               src="https://thumbs.dreamstime.com/b/perfil-del-avatar-de-la-mujer-joven-y-elegante-81932605.jpg"
               alt="avatar"
               className="avatar"
             />
-          </div>
+          </Link>
         </div>
       </div>
     </div>

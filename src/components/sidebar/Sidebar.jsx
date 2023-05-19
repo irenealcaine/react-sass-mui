@@ -49,10 +49,12 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
@@ -66,15 +68,17 @@ const Sidebar = () => {
               <span>Products</span>
             </li>
           </Link>
-          <li>
-            <InventoryOutlinedIcon className="icon" />
-            <span>Orders</span>
-          </li>
+          <Link to="/orders" style={{ textDecoration: "none" }}>
+            <li>
+              <InventoryOutlinedIcon className="icon" />
+              <span>Orders</span>
+            </li>
+          </Link>
           <li>
             <LocalShippingOutlinedIcon className="icon" />
             <span>Delivery</span>
           </li>
-          <p className="title">USEFUL</p>
+          {/* <p className="title">USEFUL</p>
           <li>
             <QueryStatsOutlinedIcon className="icon" />
             <span>Stats</span>
@@ -95,12 +99,12 @@ const Sidebar = () => {
           <li>
             <SettingsOutlinedIcon className="icon" />
             <span>Settings</span>
-          </li>
+          </li> */}
           <p className="title">USER</p>
-          <li>
+          <Link className="link" to="/users/test">
             <AccountBoxIcon className="icon" />
-            <span>Pofile</span>
-          </li>
+            <span>Profile</span>
+          </Link>
           <li onClick={() => logOut()}>
             <LogoutOutlinedIcon className="icon" />
             <span>Logout</span>
