@@ -9,7 +9,9 @@ const Deliveries = () => {
       <Sidebar />
       <div className="deliveriesContainer">
         <Navbar />
-        <Chart aspect={2 / 1} title={"Last 6 months (revenue)"} />
+        <div className="chartContainer">
+          <Chart aspect={2 / 1} title={"Last 6 months (revenue)"} />
+        </div>
       </div>
     </div>
   );
