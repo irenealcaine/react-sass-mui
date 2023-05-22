@@ -16,10 +16,9 @@ import {
 import { db } from "../../firebase";
 import { Link } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
-import 'firebase/firestore';
+import "firebase/firestore";
 // import firebase from 'firebase/app';
 // import 'firebase/firestore';
-
 
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
@@ -120,17 +119,15 @@ const Widget = ({ type }) => {
       setDiff(
         ((lastMonthData.docs.length - prevMonthData.docs.length) /
           prevMonthData.docs.length) *
-        100
+          100
       );
-
-
     };
     fetchData();
 
     const obtenerSumaPrecios = async () => {
       try {
         // const db = getFirestore();
-        const ordersCol = collection(db, 'orders');
+        const ordersCol = collection(db, "orders");
         const snapshot = await getDocs(ordersCol);
 
         let sumaTotal = 0;
@@ -140,77 +137,28 @@ const Widget = ({ type }) => {
           const orderData = doc.data();
           const price = orderData.price;
 
-
           sumaTotal += price;
-          setOrder(sumaTotal)
+          setBalance(sumaTotal);
 
           if (price > 0) {
             sumaPositivos += price;
-            setBalance(sumaPositivos)
+            setOrder(sumaPositivos);
           }
         });
-
-        console.log('order:', sumaTotal);
-        console.log('balance:', sumaPositivos);
       } catch (error) {
-        console.error('Error al obtener la suma de precios:', error);
+        console.error("Error al obtener la suma de precios:", error);
       }
     };
     obtenerSumaPrecios();
-
   }, []);
-
-  // useEffect(() => {
-  //   const obtenerSumaPrecios = async () => {
-  //     try {
-  //       // const db = firebase.firestore();
-  //       const ordersRef = db.collection(type);
-
-  //       const snapshot = await ordersRef.get();
-
-  //       let sumaTotal = 0;
-
-  //       snapshot.forEach((doc) => {
-  //         const orderData = doc.data();
-  //         const price = orderData.price;
-  //         sumaTotal += price;
-  //       });
-
-  //       setMoney(sumaTotal);
-  //       console.log(money)
-  //     } catch (error) {
-  //       console.error('Error al obtener la suma de precios:', error);
-  //     }
-  //   };
-
-  //   obtenerSumaPrecios();
-  // }, []);
-
-
-
-
-  // const AAAA = async () => {
-  //   const docRef = collection(db, type);
-  //   const docSnap = await getDoc(docRef);
-  //   console.log(docRef);
-
-  //   if (docSnap.exists()) {
-  //     console.log("Document data:", docSnap.data());
-  //   } else {
-  //     // docSnap.data() will be undefined in this case
-  //     console.log("No such document!");
-  //   }
-
-  // }
-  // AAAA()
-
 
   return (
     <div className="widget">
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney ? (data.title === "ORDERS" ? order : balance) : amount} {data.isMoney && "€"}
+          {data.isMoney ? (data.title === "ORDERS" ? order : balance) : amount}{" "}
+          {data.isMoney && "€"}
         </span>
         <Link to={data.to}>
           <span className="link">{data.link}</span>
