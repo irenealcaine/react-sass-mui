@@ -1,9 +1,18 @@
-const Deliveries = () => {
-    return (
-        <div className='deliveries'>
-            <span className='title'>Word Hunt</span>
-        </div>
-    )
-}
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
+import Chart from "../../components/chart/Chart.jsx";
+import "./deliveries.scss";
 
-export default Deliveries
+const Deliveries = () => {
+  return (
+    <div className="deliveries">
+      <Sidebar />
+      <div className="deliveriesContainer">
+        <Navbar />
+        <Chart aspect={2 / 1} title={"Last 6 months (revenue)"} />
+      </div>
+    </div>
+  );
+};
+
+export default Deliveries;

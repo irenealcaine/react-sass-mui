@@ -74,10 +74,12 @@ const Sidebar = () => {
               <span>Orders</span>
             </li>
           </Link>
-          <li>
-            <LocalShippingOutlinedIcon className="icon" />
-            <span>Delivery</span>
-          </li>
+          <Link to="/deliveries" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingOutlinedIcon className="icon" />
+              <span>Delivery</span>
+            </li>
+          </Link>
           {/* <p className="title">USEFUL</p>
           <li>
             <QueryStatsOutlinedIcon className="icon" />
