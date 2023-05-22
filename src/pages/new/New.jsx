@@ -3,22 +3,10 @@ import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
-import {
-  doc,
-  setDoc,
-  collection,
-  addDoc,
-  serverTimestamp,
-  onSnapshot,
-} from "firebase/firestore";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db, storage } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
 const New = ({ inputs, title }) => {
@@ -64,7 +52,6 @@ const New = ({ inputs, title }) => {
     };
 
     file && uploadFile();
-    
   }, [file]);
 
   const handleInput = (e) => {
@@ -92,7 +79,6 @@ const New = ({ inputs, title }) => {
     } catch (err) {
       console.log(err);
     }
-    
   };
 
   return (
