@@ -6,19 +6,10 @@ import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import { useEffect, useState } from "react";
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Link } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
 import "firebase/firestore";
-// import firebase from 'firebase/app';
-// import 'firebase/firestore';
 
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
