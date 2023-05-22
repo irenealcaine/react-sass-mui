@@ -6,6 +6,7 @@ import Signin from "./pages/signin/Signin.jsx";
 import List from "./pages/list/List.jsx";
 import Single from "./pages/single/Single.jsx";
 import New from "./pages/new/New.jsx";
+import Deliveries from "./pages/deliveries/Deliveries.jsx";
 import { userInputs, productInputs, orderInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
@@ -121,6 +122,16 @@ function App() {
                 }
               />
             </Route>
+          </Route>
+          <Route path="deliveries">
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <Deliveries />
+                </RequireAuth>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>
