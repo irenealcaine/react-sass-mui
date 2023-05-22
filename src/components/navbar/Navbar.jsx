@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import "./navbar.scss";
-import SearchIcon from "@mui/icons-material/Search";
-import PublicIcon from "@mui/icons-material/Public";
+// import SearchIcon from "@mui/icons-material/Search";
+// import PublicIcon from "@mui/icons-material/Public";
+// import BorderInnerOutlinedIcon from "@mui/icons-material/BorderInnerOutlined";
+// import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
+// import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+// import ChecklistRtlOutlinedIcon from "@mui/icons-material/ChecklistRtlOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import BorderInnerOutlinedIcon from "@mui/icons-material/BorderInnerOutlined";
-import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
-import ChecklistRtlOutlinedIcon from "@mui/icons-material/ChecklistRtlOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { Link } from "react-router-dom";
 
