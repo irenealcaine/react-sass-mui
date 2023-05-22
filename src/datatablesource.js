@@ -2,12 +2,13 @@ export const userColumns = [
   {
     field: "id",
     headerName: "ID",
-    width: 70,
+    width: 100,
   },
+
   {
-    field: "user",
-    headerName: "User",
-    width: 230,
+    field: "username",
+    headerName: "Username",
+    width: 180,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -18,9 +19,19 @@ export const userColumns = [
     },
   },
   {
+    field: "displayName",
+    headerName: "Name",
+    width: 180,
+  },
+  {
     field: "email",
     headerName: "Email",
     width: 230,
+  },
+  {
+    field: "phone",
+    headerName: "Phone",
+    width: 180,
   },
 ];
 
@@ -28,24 +39,29 @@ export const productColumns = [
   {
     field: "id",
     headerName: "ID",
-    width: 70,
+    width: 100,
   },
   {
     field: "product",
     headerName: "Product",
     width: 230,
-    renderCell: (params) => {
-      return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.title}
-        </div>
-      );
-    },
+    // renderCell: (params) => {
+    //   return (
+    //     <div className="cellWithImg">
+    //       <img className="cellImg" src={params.row.img} alt="avatar" />
+    //       {params.row.title}
+    //     </div>
+    //   );
+    // },
   },
   {
-    field: "status",
-    headerName: "Status",
+    field: "price",
+    headerName: "Price",
+    width: 230,
+  },
+  {
+    field: "stock",
+    headerName: "Stock",
     width: 230,
   },
 ];
@@ -54,20 +70,20 @@ export const orderColumns = [
   {
     field: "id",
     headerName: "ID",
-    width: 70,
+    width: 100,
   },
   {
     field: "product",
     headerName: "Product",
     width: 230,
-    renderCell: (params) => {
-      return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.title}
-        </div>
-      );
-    },
+    // renderCell: (params) => {
+    //   return (
+    //     <div className="cellWithImg">
+    //       <img className="cellImg" src={params.row.img} alt="avatar" />
+    //       {params.row.title}
+    //     </div>
+    //   );
+    // },
   },
   {
     field: "price",

@@ -65,9 +65,9 @@ const Widget = ({ type }) => {
       data = {
         title: "EARNINGS",
         isMoney: true,
-        link: "View net earnings",
-        query: "earnings",
-        to: "/earnings",
+        link: "View deliveries",
+        query: "orders",
+        to: "/deliveries",
         icon: (
           <AttachMoneyOutlinedIcon
             className="icon"
@@ -90,6 +90,7 @@ const Widget = ({ type }) => {
         ),
       };
       break;
+
     default:
       break;
   }
@@ -135,7 +136,7 @@ const Widget = ({ type }) => {
 
         snapshot.forEach((doc) => {
           const orderData = doc.data();
-          const price = orderData.price;
+          const price = parseFloat(orderData.price);
 
           sumaTotal += price;
           setBalance(sumaTotal);
