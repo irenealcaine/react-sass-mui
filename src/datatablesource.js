@@ -1,14 +1,8 @@
 export const userColumns = [
   {
-    field: "id",
-    headerName: "ID",
-    width: 100,
-  },
-
-  {
     field: "username",
     headerName: "Username",
-    width: 180,
+    width: 150,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -21,30 +15,30 @@ export const userColumns = [
   {
     field: "displayName",
     headerName: "Name",
-    width: 180,
+    width: 150,
   },
   {
     field: "email",
     headerName: "Email",
-    width: 230,
+    width: 200,
   },
   {
     field: "phone",
     headerName: "Phone",
-    width: 180,
+    width: 150,
+  },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 100,
   },
 ];
 
 export const productColumns = [
   {
-    field: "id",
-    headerName: "ID",
-    width: 100,
-  },
-  {
     field: "product",
     headerName: "Product",
-    width: 230,
+    width: 200,
     // renderCell: (params) => {
     //   return (
     //     <div className="cellWithImg">
@@ -57,25 +51,25 @@ export const productColumns = [
   {
     field: "price",
     headerName: "Price",
-    width: 230,
+    width: 100,
   },
   {
     field: "stock",
     headerName: "Stock",
-    width: 230,
+    width: 100,
+  },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 100,
   },
 ];
 
 export const orderColumns = [
   {
-    field: "id",
-    headerName: "ID",
-    width: 100,
-  },
-  {
     field: "product",
     headerName: "Product",
-    width: 230,
+    width: 200,
     // renderCell: (params) => {
     //   return (
     //     <div className="cellWithImg">
@@ -88,6 +82,11 @@ export const orderColumns = [
   {
     field: "price",
     headerName: "Price",
-    width: 230,
+    width: 100,
+  },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 100,
   },
 ];
