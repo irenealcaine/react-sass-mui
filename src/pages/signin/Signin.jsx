@@ -8,13 +8,9 @@ import FileUploadIcon from "@mui/icons-material/FileUpload";
 import {
   doc,
   setDoc,
-  collection,
-  addDoc,
   serverTimestamp,
-  onSnapshot,
 } from "firebase/firestore";
 import {
-  getStorage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
@@ -22,37 +18,21 @@ import {
 
 const Login = ({ inputs, title }) => {
   const [errorMsg, setErrorMsg] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [data, setData] = useState({});
   const [file, setFile] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [percentage, setPercentage] = useState(null);
 
   const navigate = useNavigate();
 
+  // eslint-disable-next-line no-unused-vars
   const { dispatch } = useContext(AuthContext);
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
 
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       dispatch({ type: "LOGIN", payload: user });
-  //       navigate("/login");
-
-  //       // ...
-  //     })
-  //     .catch((error) => {
-  //       setError(true);
-  //       // ..
-  //     });
-  // };
 
   useEffect(() => {
     const uploadFile = () => {
-      const name = new Date().getTime() + file.name;
+      // const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, file.name);
 
       const uploadTask = uploadBytesResumable(storageRef, file);

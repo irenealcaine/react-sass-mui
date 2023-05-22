@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./widget.scss";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -111,7 +112,7 @@ const Widget = ({ type }) => {
       setDiff(
         ((lastMonthData.docs.length - prevMonthData.docs.length) /
           prevMonthData.docs.length) *
-          100
+        100
       );
     };
     fetchData();
