@@ -1,13 +1,8 @@
 export const userColumns = [
   {
-    field: "id",
-    headerName: "ID",
-    width: 70,
-  },
-  {
-    field: "user",
-    headerName: "User",
-    width: 230,
+    field: "username",
+    headerName: "Username",
+    width: 150,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -18,58 +13,80 @@ export const userColumns = [
     },
   },
   {
+    field: "displayName",
+    headerName: "Name",
+    width: 150,
+  },
+  {
     field: "email",
     headerName: "Email",
-    width: 230,
+    width: 200,
   },
-  // {
-  //   field: "status",
-  //   headerName: "Status",
-  //   width: 160,
-  //   renderCell: (params) => {
-  //     return (
-  //       <div className={`cellWithStatus ${params.row.status}`}>
-  //         {params.row.status}
-  //       </div>
-  //     );
-  //   },
-  // },
+  {
+    field: "phone",
+    headerName: "Phone",
+    width: 150,
+  },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 100,
+  },
 ];
 
 export const productColumns = [
   {
+    field: "product",
+    headerName: "Product",
+    width: 200,
+    // renderCell: (params) => {
+    //   return (
+    //     <div className="cellWithImg">
+    //       <img className="cellImg" src={params.row.img} alt="avatar" />
+    //       {params.row.title}
+    //     </div>
+    //   );
+    // },
+  },
+  {
+    field: "price",
+    headerName: "Price",
+    width: 100,
+  },
+  {
+    field: "stock",
+    headerName: "Stock",
+    width: 100,
+  },
+  {
     field: "id",
     headerName: "ID",
-    width: 70,
+    width: 100,
   },
+];
+
+export const orderColumns = [
   {
     field: "product",
     headerName: "Product",
-    width: 230,
-    renderCell: (params) => {
-      return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.title}
-        </div>
-      );
-    },
+    width: 200,
+    // renderCell: (params) => {
+    //   return (
+    //     <div className="cellWithImg">
+    //       <img className="cellImg" src={params.row.img} alt="avatar" />
+    //       {params.row.title}
+    //     </div>
+    //   );
+    // },
   },
   {
-    field: "status",
-    headerName: "Status",
-    width: 230,
+    field: "price",
+    headerName: "Price",
+    width: 100,
   },
-  // {
-  //   field: "status",
-  //   headerName: "Status",
-  //   width: 160,
-  //   renderCell: (params) => {
-  //     return (
-  //       <div className={`cellWithStatus ${params.row.status}`}>
-  //         {params.row.status}
-  //       </div>
-  //     );
-  //   },
-  // },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 100,
+  },
 ];

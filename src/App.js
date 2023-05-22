@@ -6,7 +6,8 @@ import Signin from "./pages/signin/Signin.jsx";
 import List from "./pages/list/List.jsx";
 import Single from "./pages/single/Single.jsx";
 import New from "./pages/new/New.jsx";
-import { userInputs, productInputs } from "./formSource";
+import Deliveries from "./pages/deliveries/Deliveries.jsx";
+import { userInputs, productInputs, orderInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -95,6 +96,42 @@ function App() {
                 }
               />
             </Route>
+            <Route path="orders">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <List type="orders" />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":orderId"
+                element={
+                  <RequireAuth>
+                    <Single />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <New inputs={orderInputs} title="Add new order" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+          </Route>
+          <Route path="deliveries">
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <Deliveries />
+                </RequireAuth>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

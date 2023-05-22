@@ -74,3 +74,24 @@ export const productInputs = [
     placeholder: "in stock",
   },
 ];
+
+export const orderInputs = [
+  {
+    id: 1,
+    label: "Title",
+    type: "text",
+    placeholder: "transaction",
+  },
+  {
+    id: 2,
+    label: "Description",
+    type: "text",
+    placeholder: "Description",
+  },
+  {
+    id: 3,
+    label: "Price",
+    type: "text",
+    placeholder: "100",
+  },
+];

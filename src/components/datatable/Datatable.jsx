@@ -1,6 +1,10 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, productColumns } from "../../datatablesource";
+import {
+  userColumns,
+  productColumns,
+  orderColumns,
+} from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
@@ -83,7 +87,9 @@ const Datatable = ({ type }) => {
         columns={
           type === "users"
             ? userColumns.concat(actionColumn)
-            : productColumns.concat(actionColumn)
+            : type === "products"
+            ? productColumns.concat(actionColumn)
+            : orderColumns.concat(actionColumn)
         }
         initialState={{
           pagination: {
