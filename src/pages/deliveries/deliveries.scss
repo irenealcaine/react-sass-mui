@@ -1,0 +1,21 @@
+.deliveries {
+  width: 100%;
+  display: flex;
+  .deliveriesContainer {
+    flex: 6;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .deliveries {
+    flex-direction: column;
+    min-height: 100vh;
+    .deliveriesContainer {
+      .chartContainer {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+      }
+    }
+  }
+}
