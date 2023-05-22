@@ -91,6 +91,7 @@ const New = ({ inputs, title }) => {
     } catch (err) {
       console.log(err);
     }
+    
   };
 
   return (
