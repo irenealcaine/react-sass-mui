@@ -64,6 +64,7 @@ const New = ({ inputs, title }) => {
     };
 
     file && uploadFile();
+    
   }, [file]);
 
   const handleInput = (e) => {
