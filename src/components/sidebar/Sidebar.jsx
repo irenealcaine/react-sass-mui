@@ -6,11 +6,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import QueryStatsOutlinedIcon from "@mui/icons-material/QueryStatsOutlined";
-import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+// import QueryStatsOutlinedIcon from "@mui/icons-material/QueryStatsOutlined";
+// import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
+// import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+// import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+// import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
